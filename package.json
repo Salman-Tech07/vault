@@ -1,0 +1,19 @@
+{
+  "name": "distributed-storage-hackathon",
+  "version": "1.0.0",
+  "description": "Simple fault-tolerant distributed object storage demo for hackathon",
+  "scripts": {
+    "node1": "node storageNode.js 3001 node1",
+    "node2": "node storageNode.js 3002 node2",
+    "node3": "node storageNode.js 3003 node3",
+    "coordinator": "node coordinator.js",
+    "start-all": "concurrently -n node1,node2,node3,coordinator -c green,cyan,magenta,yellow \"npm run node1\" \"npm run node2\" \"npm run node3\" \"npm run coordinator\""
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
